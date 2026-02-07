@@ -1,0 +1,842 @@
+/* =========================================
+   1. VARIABLES Y RESET (Base)
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* --- PALETA VIOLETA CYBERPUNK --- */
+    --primary-color: #6a00ff;   /* Violeta */
+    --secondary-color: #d900ff; /* Magenta */
+    
+    /* --- FONDOS (Aquí está la clave) --- */
+    --dark-bg: #05020a;    /* Casi negro */
+    --darker-bg: #000000;  /* Negro absoluto */
+    
+    /* --- TEXTOS --- */
+    --text-light: #ffffff;
+    --text-gray: #b3a0c0;
+    
+    /* --- EXTRAS --- */
+    --accent-gradient: linear-gradient(135deg, #6a00ff 0%, #d900ff 100%);
+    --card-bg: rgba(20, 10, 30, 0.7); 
+    --border-color: rgba(138, 43, 226, 0.3);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    /* TRUCO DE SEGURIDAD: Color fijo primero, variable después */
+    background-color: #05020a; 
+    background-color: var(--dark-bg);
+    
+    color: var(--text-light); /* Texto blanco */
+    color: white; /* Respaldo */
+    
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Utilitarios de Texto */
+.highlight, .gradient-text {
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: bold;
+}
+
+.text-center { text-align: center; }
+
+/* =========================================
+   2. NAVEGACIÓN (Navbar)
+   ========================================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(10, 14, 39, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+/* Clase añadida por JS al bajar el scroll */
+.navbar.scrolled {
+    background: rgba(5, 8, 20, 0.98);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    padding: 0.8rem 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    /* Estilo del contenedor del logo (Enlace) */
+.logo {
+    display: flex;          /* Pone la imagen y el texto lado a lado */
+    align-items: center;    /* Centra verticalmente */
+    gap: 10px;              /* Espacio entre la imagen y el texto */
+    
+    /* Tus estilos de texto anteriores */
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    
+    /* EFECTO DE TEXTO CON GRADIENTE */
+    background: linear-gradient(to right, #6a00ff, #d900ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text; /* Para compatibilidad estándar */
+}
+
+/* Estilo para controlar el tamaño de la imagen */
+.logo-img {
+    height: 60px;  /* Ajusta este valor según el alto de tu barra de navegación */
+    width: auto;   /* Mantiene la proporción para que no se estire */
+    
+    /* Opcional: Si tu logo es negro y el fondo oscuro, inviértelo a blanco */
+    /* filter: invert(1); */ 
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-link {
+    color: var(--text-gray);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--secondary-color);
+}
+
+/* Indicador visual (puntito) para link activo */
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--secondary-color);
+    box-shadow: 0 0 10px var(--secondary-color);
+}
+
+/* Botón Contacto en el menú */
+.btn-contact {
+    border: 1px solid var(--secondary-color);
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    color: var(--secondary-color) !important;
+}
+
+.btn-contact:hover {
+    background: rgba(217, 0, 255, 0.1);
+    box-shadow: 0 0 15px rgba(217, 0, 255, 0.3);
+}
+
+
+/* Menú Hamburguesa */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background: var(--text-light);
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+/* =========================================
+   3. HERO SECTION (Inicio)
+   ========================================= */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-top: 80px; /* Compensa el navbar fijo */
+}
+
+/* Fondo decorativo radial */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(0, 102, 255, 0.15), transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(0, 217, 255, 0.15), transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+}
+
+.hero-text {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-gray);
+    margin-bottom: 2rem;
+}
+
+.btn {
+    padding: 0.9rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    /* ... */
+    background: var(--accent-gradient);
+    color: white;
+    box-shadow: 0 4px 15px rgba(106, 0, 255, 0.4); /* Sombra violeta */
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(106, 0, 255, 0.6); /* Brillo intenso al pasar mouse */
+}
+
+.btn-outline, .btn-secondary {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-light);
+    margin-left: 10px;
+}
+
+.btn-outline:hover, .btn-secondary:hover {
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+/* Visual del Hero (Círculo brillante) */
+.hero-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.glowing-circle {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(217, 0, 255, 0.1) 0%, transparent 70%);
+    border: 1px solid rgba(217, 0, 255, 0.4);
+    box-shadow: 0 0 50px rgba(106, 0, 255, 0.3);
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* =========================================
+   4. ESTILOS COMUNES DE SECCIONES
+   ========================================= */
+.section-padding { padding: 30px 0; }
+.bg-darker { background: var(--darker-bg); }
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+/* Headers de Páginas Internas */
+.page-header {
+    padding: 140px 0 60px;
+    text-align: center;
+    background: linear-gradient(180deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+}
+
+.page-title { font-size: 3rem; margin-bottom: 0.5rem; }
+.page-subtitle { color: var(--text-gray); font-size: 1.2rem; }
+
+/* Grid genérico de 3 columnas */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* =========================================
+   5. TARJETAS (Servicios, Info, etc.)
+   ========================================= */
+.card, .feature-card, .mvv-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.card:hover, .feature-card:hover, .mvv-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--secondary-color);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.icon-box, .icon-box-small {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+/* =========================================
+   6. PÁGINA DE PROYECTOS (NUEVO)
+   ========================================= */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--secondary-color);
+}
+
+/* Imagen del Proyecto */
+.project-image {
+    position: relative;
+    height: 200px;
+    width: 100%;
+    background: #000;
+}
+
+.img-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+/* Badges de Estado */
+.status-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.status-badge.production { background: #00cc66; }
+.status-badge.prototype { background: #ff9900; }
+.status-badge.concept { background: #9933ff; }
+
+/* Contenido Proyecto */
+.project-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-content h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+.project-desc { font-size: 0.95rem; color: var(--text-gray); margin-bottom: 1.5rem; flex-grow: 1; }
+
+/* Etiquetas de Tecnología */
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tech-tag {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+}
+
+/* Botón texto simple */
+.btn-text {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.btn-text:hover { color: var(--secondary-color); }
+
+/* =========================================
+   7. PÁGINA SERVICIOS (Grid productos)
+   ========================================= */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    border-color: var(--secondary-color);
+    transform: translateY(-5px);
+}
+
+.product-icon { font-size: 3rem; margin-bottom: 1rem; color: var(--primary-color); }
+.product-description { color: var(--text-gray); flex-grow: 1; margin-bottom: 1.5rem; }
+
+.product-badge.new {
+    position: absolute;
+    top: 15px; right: 15px;
+    background: linear-gradient(135deg, #ff006e, #ff6b35);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+/* =========================================
+   8. PÁGINA CONTACTO
+   ========================================= */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+}
+
+.contact-form-container {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+}
+
+.form-group { margin-bottom: 1.5rem; }
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.form-group input, .form-group textarea, .form-group select {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: white;
+    font-family: inherit;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+}
+
+.info-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* =========================================
+   9. FOOTER
+   ========================================= */
+footer {
+    background: var(--darker-bg);
+    padding: 60px 0 20px;
+    border-top: 1px solid var(--border-color);
+    margin-top: auto; /* Push footer down */
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-links ul { list-style: none; }
+.footer-links a { color: var(--text-gray); text-decoration: none; }
+.footer-links a:hover { color: var(--secondary-color); }
+
+.social-icons a {
+    color: var(--text-light);
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+.copyright {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 20px;
+}
+
+/* =========================================
+   10. RESPONSIVE Y ANIMACIONES (JavaScript)
+   ========================================= */
+
+/* Clases para animación de Scroll (usadas por JS) */
+.card, .project-card, .product-card, .section-title, .hero-text {
+    opacity: 1;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.show {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Media Queries */
+@media (max-width: 968px) {
+    .hamburger { display: flex; z-index: 1001; }
+    
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        flex-direction: column;
+        background: rgba(5, 8, 20, 0.98);
+        width: 100%;
+        height: 100vh;
+        justify-content: center;
+        transition: 0.3s;
+    }
+
+    .nav-menu.active { left: 0; }
+
+    .hero-content {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+    
+    .hero-text h1 { font-size: 2.5rem; }
+    .hero-visual { margin-bottom: 2rem; }
+    .glowing-circle { width: 250px; height: 250px; }
+    
+    .contact-grid, .footer-content { grid-template-columns: 1fr; }
+    
+    /* Animación menú hamburguesa activo */
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+}
+
+/* Estilo para la imagen del Hero */
+.hero-visual {
+    position: relative; /* Necesario para posicionar la imagen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-img {
+    position: absolute; /* Se encima sobre el círculo */
+    width: 80%;         /* Ajusta el tamaño según necesites */
+    max-width: 500px;
+    z-index: 2;         /* Asegura que quede ENCIMA del brillo */
+    animation: float 6s ease-in-out infinite; /* Misma animación que el círculo */
+}
+
+/* Ajuste para usar imágenes en lugar de emojis en las tarjetas */
+.icon-box {
+    /* Aseguramos que el contenedor tenga un tamaño fijo y centre la imagen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px; /* Ajusta esto según el tamaño que quieras */
+    margin-bottom: 1rem;
+}
+
+.service-icon {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Evita que la imagen se estire o deforme */
+    
+    /* Opcional: Esto le da un brillo neón a la imagen si es un PNG transparente */
+    filter: drop-shadow(0 0 5px var(--secondary-color));
+    transition: transform 0.3s ease;
+}
+
+/* Efecto al pasar el mouse sobre la tarjeta */
+.card:hover .service-icon {
+    transform: scale(1.1); /* La imagen crece un poquito */
+    filter: drop-shadow(0 0 10px var(--secondary-color)); /* Brilla más */
+}
+
+/* Corrección de espaciado para el botón "Explorar más" */
+.margin-top {
+    margin-top: 4rem; /* Esto baja el botón 64px (bastante espacio) */
+    display: block;   /* Asegura que el margen se respete correctamente */
+}
+
+/* Opcional: Estilo para que el enlace se vea más llamativo */
+.link-arrow {
+    display: inline-block;
+    color: var(--secondary-color);
+    font-weight: bold;
+    text-decoration: none;
+    border: 1px solid var(--secondary-color);
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.link-arrow:hover {
+    background: rgba(217, 0, 255, 0.1);
+    transform: translateX(5px); /* Pequeña animación hacia la derecha */
+}
+
+/* Estilo para texto justificado en la sección "Por qué nosotros" */
+.justified-text {
+    text-align: justify;       /* Alinea el texto a ambos bordes */
+    line-height: 1.6;          /* Da espacio entre líneas para que no se vea amontonado */
+    margin-top: 1.5rem;        /* Espacio superior para separarlo del título */
+    font-size: 1.05rem;        /* Un toque más grande para mejor lectura */
+    color: var(--text-gray);   /* Mantiene el color gris claro de tu tema */
+}
+
+/* Opcional: En móviles, el justificado a veces se ve raro (ríos de espacios). 
+   Esto lo regresa a la izquierda solo en pantallas pequeñas */
+@media (max-width: 600px) {
+    .justified-text {
+        text-align: left;
+    }
+}
+
+/* Estilos para los íconos de redes sociales */
+.social-icons {
+    display: flex;
+    gap: 15px; /* Espacio entre cada ícono */
+    margin-top: 15px;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;       /* Ancho del botón */
+    height: 40px;      /* Alto del botón */
+    border-radius: 50%; /* Esto los hace redondos */
+    background: rgba(255, 255, 255, 0.1); /* Fondo sutil */
+    color: var(--text-light); /* Color del ícono */
+    font-size: 1.2rem; /* Tamaño del logo */
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Efecto Hover (al pasar el mouse) */
+.social-icons a:hover {
+    background: var(--primary-color); /* Se pone violeta */
+    color: white;
+    transform: translateY(-3px); /* Se eleva un poquito */
+    box-shadow: 0 0 15px var(--primary-color); /* Brillo neón */
+}
+
+/* --- ESTILOS PÁGINA QUIÉNES SOMOS --- */
+
+/* Layout dividido (Texto a un lado, imagen al otro) */
+.split-layout {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap; /* Para que en celular se ponga uno abajo de otro */
+}
+
+.split-layout .text-content,
+.split-layout .visual-content {
+    flex: 1;
+    min-width: 300px; /* Evita que se haga muy angosto */
+}
+
+/* Placeholder visual para la historia */
+.about-image-container {
+    width: 100%;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(106, 0, 255, 0.1);
+}
+
+/* --- SECCIÓN DEL EQUIPO (TEAM) --- */
+
+.team-grid {
+    display: flex;          /* Usamos Flexbox en lugar de Grid */
+    flex-wrap: wrap;        /* Permite que las tarjetas bajen a la siguiente línea */
+    justify-content: center; /* <--- LA CLAVE: Centra todos los elementos (incluyendo los 2 de abajo) */
+    gap: 2rem;              /* Espacio entre tarjetas */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.team-card {
+    /* Ajuste de tamaño para que quepan 3 por fila */
+    flex: 0 1 300px;        /* Ancho preferido de 300px, pero flexible */
+    min-width: 250px;       /* No se hace más pequeño que esto (para móvil) */
+    
+    /* Estilos visuales (igual que antes) */
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--secondary-color);
+}
+
+/* Foto Circular del Miembro */
+.member-img {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1.5rem; /* Centrado y separado del nombre */
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--primary-color); /* Borde Violeta */
+    box-shadow: 0 0 15px rgba(106, 0, 255, 0.3);
+    background: #000; /* Fondo por si la imagen tarda en cargar */
+}
+
+.member-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la cara se vea bien sin estirarse */
+}
+
+.team-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+}
+
+.team-card .role {
+    color: var(--secondary-color); /* Cargo en Magenta/Cyan */
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+/* Redes Sociales del Miembro */
+.member-social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.member-social a {
+    color: var(--text-gray);
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.member-social a:hover {
+    color: var(--secondary-color);
+    transform: scale(1.2);
+}
+
+/* Estilo para la imagen de "Nuestra Historia" */
+.about-img {
+    width: 100%;
+    
+    max-width: 600px;   /* Tamaño máximo */
+    border-radius: 15px; /* Mantenemos las esquinas redondeadas para que se vea moderno */
+    
+    /* --- LÍNEAS ELIMINADAS PARA QUITAR EL EFECTO NEÓN --- */
+    /* border: 2px solid var(--primary-color); */
+    /* box-shadow: 0 0 20px rgba(106, 0, 255, 0.3); */
+    /* ---------------------------------------------------- */
+
+    transition: transform 0.3s ease;
+}
+
+/* El efecto de pequeño zoom al pasar el mouse se mantiene */
+.about-img:hover {
+    transform: scale(1.02); 
+}
