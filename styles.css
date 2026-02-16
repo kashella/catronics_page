@@ -840,3 +840,19 @@ footer {
 .about-img:hover {
     transform: scale(1.02); 
 }
+
+/* Alineación a la Izquierda para Íconos/Imágenes en Tarjetas */
+.mvv-card .icon-box-small {
+    display: flex;       /* Mantiene el control del tamaño */
+    justify-content: flex-start; /* <--- ESTA ES LA CLAVE: Alinea a la izquierda */
+    margin: 0 0 1rem 0;  /* Margen solo abajo (Arriba Der Abajo Izq) */
+    width: 100%;         /* Ocupa todo el ancho disponible */
+}
+
+.mvv-card .icon-box-small img, 
+.mvv-card .icon-box-small i {
+    font-size: 2.5rem;   /* Tamaño si es ícono */
+    max-width: 60px;     /* Tamaño máximo si es imagen */
+    height: auto;
+}
+
