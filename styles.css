@@ -42,24 +42,20 @@
 
     .nav-menu {
         position: absolute;
-        top: 70px; /* Justo debajo de la barra de navegación */
-        left: -100%; /* Esconde el menú a la izquierda fuera de la pantalla */
+        top: 70px; 
+        left: -100%; 
         flex-direction: column;
-        background-color: var(--bg-dark); /* Fondo oscuro */
+        background-color: var(--bg-dark); 
         width: 100%;
         text-align: center;
-        transition: 0.3s; /* Animación suave al abrir */
+        transition: 0.3s; 
         padding: 2rem 0;
         box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+        z-index: 999; /* <--- ESTO ES LA CLAVE PARA QUE SALGA AL FRENTE */
     }
 
-    /* Esta clase ".active" se la agregaremos con JavaScript al dar clic */
     .nav-menu.active {
-        left: 0; /* Desliza el menú hacia adentro de la pantalla */
-    }
-
-    .nav-menu li {
-        margin: 1.5rem 0;
+        left: 0 !important; /* El !important fuerza a que sí o sí cambie de posición */
     }
 }
 

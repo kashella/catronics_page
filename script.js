@@ -100,3 +100,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }));
 
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+
+    if (hamburger) {
+        hamburger.addEventListener("click", () => {
+            console.log("¡Me hiciste clic!"); // Para probar si funciona
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+    }
+});
