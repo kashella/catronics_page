@@ -77,3 +77,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Espera a que cargue toda la página
+document.addEventListener('DOMContentLoaded', () => {
+    
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+
+    // Cuando hacen clic en las 3 rayitas
+    if (hamburger) {
+        hamburger.addEventListener("click", () => {
+            // Agrega o quita la clase "active"
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+    }
+
+    // (Opcional) Cierra el menú si hacen clic en un enlace
+    document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+    }));
+
+});

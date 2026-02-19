@@ -1,4 +1,69 @@
 /* =========================================
+   DISEÑO RESPONSIVO (MÓVILES Y TABLETS)
+   ========================================= */
+
+@media (max-width: 768px) {
+    
+    /* 1. Misión, Visión y Valores en 1 sola columna */
+    .grid-3 {
+        grid-template-columns: 1fr; /* Una tarjeta debajo de la otra */
+        gap: 1.5rem;
+    }
+
+    /* 2. La Historia: de lado a lado a arriba y abajo */
+    .split-layout {
+        flex-direction: column; /* Pone el texto arriba y la imagen/icono abajo */
+        text-align: center; /* Centra el texto en celular para que se lea mejor */
+    }
+
+    /* 3. Ajuste de textos muy grandes */
+    .page-title {
+        font-size: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+
+    /* 4. Menú Hamburguesa (Ocultar links y mostrar el botón) */
+    .hamburger {
+        display: block; /* Muestra las 3 rayitas */
+        cursor: pointer;
+    }
+
+    .hamburger .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        background-color: var(--text-light); /* Color de las rayitas */
+        transition: all 0.3s ease;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 70px; /* Justo debajo de la barra de navegación */
+        left: -100%; /* Esconde el menú a la izquierda fuera de la pantalla */
+        flex-direction: column;
+        background-color: var(--bg-dark); /* Fondo oscuro */
+        width: 100%;
+        text-align: center;
+        transition: 0.3s; /* Animación suave al abrir */
+        padding: 2rem 0;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Esta clase ".active" se la agregaremos con JavaScript al dar clic */
+    .nav-menu.active {
+        left: 0; /* Desliza el menú hacia adentro de la pantalla */
+    }
+
+    .nav-menu li {
+        margin: 1.5rem 0;
+    }
+}
+
+/* =========================================
    1. VARIABLES Y RESET (Base)
    ========================================= */
 * {
