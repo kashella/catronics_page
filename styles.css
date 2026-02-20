@@ -250,15 +250,23 @@ body {
     padding-top: 80px; /* Compensa el navbar fijo */
 }
 
-/* Fondo decorativo radial */
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(0, 102, 255, 0.15), transparent 50%),
-                radial-gradient(circle at 80% 50%, rgba(0, 217, 255, 0.15), transparent 50%);
-    pointer-events: none;
-    z-index: -1;
+/* --- Brillo directo para la imagen principal (Hero) --- */
+.hero img {
+    /* Mantiene el tamaño y posición que ya tenías */
+    max-width: 100%;
+    height: auto;
+    
+    /* El brillo neón (Usa tu color primario) */
+    filter: drop-shadow(0 0 25px var(--primary-color));
+    
+    /* Animación suave para cuando pasen el mouse */
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+/* Opcional: Que el brillo se intensifique al pasar el cursor */
+.hero img:hover {
+    filter: drop-shadow(0 0 40px var(--secondary-color));
+    transform: scale(1.02); /* Un zoom levísimo */
 }
 
 .hero-content {
