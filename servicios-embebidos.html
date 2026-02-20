@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitemas Embebidos | Catronics</title>
+    <meta name="description" content="Conoce mas a fondo los Sistemas Embebidos que creamos">
+    
+     <link rel="stylesheet" href="styles.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+            <img src="images/Red & White Simple Shoe Sale Instagram Post.png" alt="Logo" class="logo-img">
+            CATRONICS
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="quienes.html" class="nav-link">Quiénes Somos</a></li>
+                <li><a href="servicios.html" class="nav-link active">Servicios</a></li>
+                <li><a href="proyectos.html" class="nav-link">Proyectos</a></li>
+                <li><a href="contacto.html" class="nav-link btn-contact">Contacto</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title"><span class="gradient-text">Sistemas Embebidos</span></h1>
+            <p class="page-subtitle">Diseño embebido robusto: desde la PCB hasta el último bit de firmware.</p>
+        </div>
+    </header>
+
+<section class="section-padding">
+    <div class="container">
+        <div class="grid-2" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+            
+           <div class="feature-box">
+                <img src="images/hardware.png" alt="Icono Diseño de Hardware" class="feature-img">
+                <h3>Diseño de Hardware</h3>
+                <p class="justified-text">
+                    El proceso de diseño de PCB incluye captura de esquemáticos, simulación de señal e integridad de potencia, ruteo multicapa con control de impedancia, y generación de archivos de fabricación bajo estándares IPC. Trabajamos con herramientas como Altium Designer, KiCad y EasyEDA, adaptándonos al entorno del cliente. Consideramos desde el inicio aspectos de EMC/EMI, disipación térmica y certificación (CE, FCC), lo que reduce iteraciones costosas en etapas avanzadas del proyecto.
+                </p>
+            </div>
+            
+
+            <div class="feature-box">
+                <img src="images/firmware.png" alt="Icono Diseño de firmware" class="feature-img">
+                <h3>Firmware y Arquitectura</h3>
+                <p class="justified-text">
+                    El desarrollo de firmware va más allá de escribir código funcional. Implementamos arquitecturas limpias y mantenibles: máquinas de estado, patrones de diseño embebido (HAL propio, drivers desacoplados), y comunicaciones robustas (UART, SPI, I²C, CAN Bus, Modbus RTU/TCP y MQTT). Aplicamos prácticas de desarrollo seguro (watchdog timers, manejo de fallos) y stacks de seguridad para transmisión de datos cifrada.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="section-padding bg-darker">
+    <div class="container">
+        <h2 class="text-center" style="margin-bottom: 3rem;">Plataformas y <span class="highlight">Microcontroladores</span></h2>
+        
+        <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+            
+            <div class="card mvv-card">
+                <h3 style="color: var(--primary-color);">STM32 <span style="font-size: 0.9rem; color: var(--text-gray);">(ARM Cortex)</span></h3>
+                <p>Ideal para aplicaciones de control en tiempo real, DSP, comunicaciones industriales y procesamiento de señal de alta frecuencia. Utilizamos el ecosistema STM32CubeIDE/HAL y FreeRTOS para gestión multitarea determinista.</p>
+            </div>
+
+            <div class="card mvv-card">
+                <h3 style="color: var(--secondary-color);">ESP32 <span style="font-size: 0.9rem; color: var(--text-gray);">(IoT)</span></h3>
+                <p>Solución preferida para aplicaciones IoT con conectividad Wi-Fi y Bluetooth integrada, combinando bajo consumo con capacidad de cómputo dual-core. Desarrollamos sobre ESP-IDF, Arduino o Zephyr RTOS.</p>
+            </div>
+
+            <div class="card mvv-card">
+                <h3 style="color: #e6005c;">Raspberry Pi <span style="font-size: 0.9rem; color: var(--text-gray);">(SBC / Linux)</span></h3>
+                <p>Excelente para proyectos que demandan alto poder de cómputo, como visión artificial, Edge AI y Gateways industriales. Implementamos soluciones robustas sobre Embedded Linux, integrando algoritmos complejos, procesamiento de imágenes y bases de datos locales.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="section-padding">
+    <div class="container">
+        <div class="grid-2" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+            
+            <div class="feature-box">
+                <img src="images/bateria.png" alt="Optimización de Consumo" class="feature-img">
+                <h3>Optimización de Consumo</h3>
+                <p class="justified-text">
+                    Para aplicaciones alimentadas por batería, diseñamos con una estrategia de bajo consumo desde el origen: selección de reguladores de alta eficiencia, uso de modos de suspensión profunda, wake-up por interrupciones o RTC, y perfilado de consumo real. El objetivo es maximizar la autonomía sin sacrificar la respuesta del sistema.
+                </p>
+            </div>
+
+            <div class="feature-box">
+                <img src="images/produccion.png" alt="De Prototipo a Producción" class="feature-img">
+                <h3>De Prototipo a Producción</h3>
+                <p class="justified-text">
+                    Acompañamos al cliente en todas las fases: prueba de concepto, prototipo funcional, validación, y soporte para la transición a producción en volumen. Esto incluye documentación técnica completa, archivos de fabricación optimizados (DFM) y soporte para pruebas de producción (test fixtures, ICT).
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="section-padding">
+    <div class="container">
+        <h2 class="text-center section-title" style="margin-bottom: 3rem;">Nuestros <span class="highlight">Proyectos</span></h2>
+        
+        <div class="grid-3">
+            
+            <div class="gallery-card">
+                <div class="gallery-img-container">
+                    <img src="images/rpmetrics.jpeg" alt="Plataforma RPMetrics">
+                </div>
+                <div class="gallery-info">
+                    <h3>A2TEM</h3>
+                    <p>Sistema modular de telemetría para análisis de rendimiento automotriz basado en microcontrolador ESP32 y sensores de precisión.</p>
+                </div>
+            </div>
+
+            <div class="gallery-card">
+                <div class="gallery-img-container">
+                    <img src="images/cansat.jpeg" alt="CANSAT">
+                </div>
+                <div class="gallery-info">
+                    <h3>CANSAT</h3>
+                    <p>Sistema de monitoreo de condiciones atmosfericas implementado con ESP32 y sensores de temperatura, presión, posicionamiento y altura</p>
+                </div>
+            </div>
+
+            <div class="gallery-card">
+                <div class="gallery-img-container">
+                    <img src="images/evo2.png" alt="Evo2">
+                </div>
+                <div class="gallery-info">
+                    <h3>Evo II</h3>
+                    <p>Segundo prototipo del CANSAT, con mas modulos que brindan mas precisión, ademas de estar diseñado para pruebas a gran altura.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+   <section class="cta-section">
+        <div class="container">
+            <h2>¿Deseas crear un Sistema Embebido con nostros?</h2>
+            <p>Es probable que podamos hacerlo. Cuéntanos tu reto técnico.</p>
+            <a href="contacto.html" class="btn btn-primary btn-large">Consultar Personalizado</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h3>Catronics</h3>
+                <p>Ingeniería y Tecnología</p>
+            </div>
+            <div class="footer-links">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="proyectos.html">Proyectos</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p>contacto@catronics.mx</p>
+            </div>
+        </div>
+        <div class="copyright text-center">
+            <p>&copy; 2026 Catronics. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="java.js"></script>
+</body>
+</html>
