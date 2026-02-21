@@ -319,7 +319,7 @@ body {
 
 .btn-outline, .btn-secondary {
     background: transparent;
-    border: 1px solid var(--border-color);
+    border: 5px solid var(--border-color);
     color: var(--text-light);
     margin-left: 10px;
 }
@@ -355,18 +355,19 @@ body {
 /* =========================================
    4. ESTILOS COMUNES DE SECCIONES
    ========================================= */
-.section-padding { padding: 30px 0; }
+.section-padding { padding: 10px 0; }
 .bg-darker { background: var(--darker-bg); }
 
 .section-title {
     font-size: 2.5rem;
+    margin-top: 1rem;
     margin-bottom: 3rem;
     text-align: center;
 }
 
 /* Headers de Páginas Internas */
 .page-header {
-    padding: 140px 0 60px;
+    padding: 60px 0 0px;
     text-align: center;
     background: linear-gradient(180deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
 }
@@ -378,7 +379,7 @@ body {
 .grid-3 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    gap: 1rem;
 }
 
 /* =========================================
@@ -386,9 +387,9 @@ body {
    ========================================= */
 .card, .feature-card, .mvv-card {
     background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 15px;
-    padding: 2rem;
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+    padding: 1.2rem; /* <--- MAGIA AQUÍ: Reducido de 2rem a 1.2rem */
     transition: all 0.3s ease;
 }
 
@@ -399,11 +400,10 @@ body {
 }
 
 .icon-box, .icon-box-small {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 2rem; /* Reduje un poco el tamaño base si usas iconos */
+    margin-bottom: 0.8rem; /* Menos espacio entre la imagen/icono y el título */
     color: var(--secondary-color);
 }
-
 /* =========================================
    6. PÁGINA DE PROYECTOS (NUEVO)
    ========================================= */
@@ -591,9 +591,9 @@ body {
    ========================================= */
 footer {
     background: var(--darker-bg);
-    padding: 60px 0 20px;
+    padding: 10px 0 10px;
     border-top: 1px solid var(--border-color);
-    margin-top: auto; /* Push footer down */
+    margin-top: 1rem; /* Push footer down */
 }
 
 .footer-content {
@@ -929,7 +929,8 @@ footer {
 .feature-box .feature-img {
     max-width: 60px; /* Tamaño similar al ícono fa-3x */
     height: auto;
-    margin-bottom: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 1;
     object-fit: contain;
     
     /* Opcional: Para darle un brillo violeta similar al color que tenía el ícono */
