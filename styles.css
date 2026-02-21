@@ -29,6 +29,8 @@
     .hamburger {
         display: block; /* Muestra las 3 rayitas */
         cursor: pointer;
+        background-color: transparent;
+        border: none;
     }
 
     .hamburger .bar {
