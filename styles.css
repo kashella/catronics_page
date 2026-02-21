@@ -1041,3 +1041,184 @@ footer {
     line-height: 1.5;
     margin: 0;
 }
+
+/* =========================================
+   IMÁGENES DEL PROCESO IOT (Tarjetas)
+   ========================================= */
+
+.mvv-card .icon-box-small {
+    display: flex;
+    justify-content: flex-start; /* Asegura que la imagen quede a la izquierda */
+    align-items: center;
+    height: 60px;                /* Altura uniforme para las 3 tarjetas */
+    margin-bottom: 1.5rem;
+}
+
+.mvv-card .icon-box-small img {
+    height: 100%;
+    width: auto;
+    max-width: 60px;             /* Evita que se hagan gigantes */
+    object-fit: contain;
+    display: block;
+    
+    /* Transición suave para la animación */
+    transition: transform 0.3s ease, filter 0.3s ease;
+    
+    /* Brillo base (Violeta) */
+    filter: drop-shadow(0 0 8px var(--primary-color));
+}
+
+/* Efecto al pasar el cursor sobre la tarjeta completa */
+.mvv-card:hover .icon-box-small img {
+    transform: scale(1.1);       /* Pequeño zoom */
+    filter: drop-shadow(0 0 15px var(--secondary-color)); /* Brillo intenso (Magenta/Cyan) */
+}
+
+/* =========================================
+   DASHBOARD SIMULADO (MOCKUP IOT)
+   ========================================= */
+
+.mock-dashboard {
+    background: linear-gradient(145deg, #111524 0%, #0a0c16 100%);
+    border: 1px solid rgba(0, 210, 255, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 210, 255, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Cabecera del Dashboard */
+.dash-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    color: var(--text-gray);
+}
+
+.dash-node {
+    font-family: monospace;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+/* Foquito verde parpadeante */
+.dash-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #4caf50;
+    font-weight: bold;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #4caf50;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #4caf50;
+    animation: pulseDot 1.5s infinite;
+}
+
+/* Rejilla de los Widgets */
+.dash-grid-internal {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.dash-widget {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    text-align: left;
+}
+
+.widget-header {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    margin-bottom: 10px;
+}
+
+.widget-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+/* Barra de progreso de Temperatura */
+.widget-bar-bg {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.widget-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff4757, #ff6b81);
+    border-radius: 3px;
+    box-shadow: 0 0 10px #ff4757;
+}
+
+/* Gráfica de barras simulada */
+.mini-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+    height: 35px; /* Altura de la gráfica */
+}
+
+.chart-bar {
+    flex: 1;
+    background: linear-gradient(180deg, #00d2ff, #0072ff);
+    border-radius: 2px 2px 0 0;
+    box-shadow: 0 0 8px rgba(0, 210, 255, 0.5);
+}
+
+/* =========================================
+   ANIMACIONES (KEYFRAMES)
+   ========================================= */
+
+/* Parpadeo del foco en línea */
+@keyframes pulseDot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+/* Animación de la temperatura subiendo y bajando */
+.temp-anim {
+    animation: tempMove 6s ease-in-out infinite;
+}
+@keyframes tempMove {
+    0%, 100% { width: 60%; }
+    50% { width: 85%; }
+}
+
+/* Animación de las barras de la gráfica (Efecto ecualizador) */
+.cb-1 { animation: barMove 1.2s infinite alternate; }
+.cb-2 { animation: barMove 1.5s infinite alternate-reverse; }
+.cb-3 { animation: barMove 1.1s infinite alternate; }
+.cb-4 { animation: barMove 1.6s infinite alternate-reverse; }
+.cb-5 { animation: barMove 1.3s infinite alternate; }
+.cb-6 { animation: barMove 1.4s infinite alternate-reverse; }
+
+@keyframes barMove {
+    0% { height: 20%; }
+    100% { height: 90%; }
+}
+
+/* Responsivo para el mini-dashboard en celulares */
+@media (max-width: 450px) {
+    .dash-grid-internal { grid-template-columns: 1fr; }
+}

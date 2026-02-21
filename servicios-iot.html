@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitemas Embebidos | Catronics</title>
+    <meta name="description" content="Conoce mas a fondo los Sistemas Embebidos que creamos">
+    
+     <link rel="stylesheet" href="styles.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+            <img src="images/Red & White Simple Shoe Sale Instagram Post.png" alt="Logo" class="logo-img">
+            CATRONICS
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="quienes.html" class="nav-link">Quiénes Somos</a></li>
+                <li><a href="servicios.html" class="nav-link active">Servicios</a></li>
+                <li><a href="proyectos.html" class="nav-link">Proyectos</a></li>
+                <li><a href="contacto.html" class="nav-link btn-contact">Contacto</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title"><span class="gradient-text">IoT</span></h1>
+            <p class="page-subtitle">Un sistema IoT (Internet of Things) es la tecnología que permite que dispositivos físicos (sensores, máquinas, equipos industriales) se conecten a internet y se comuniquen entre sí y con plataformas en la nube, transformando datos del mundo real en información útil para la toma de decisiones.</p>
+        </div>
+    </header>
+
+    <section class="section-padding">
+    <div class="container">
+        <h2 class="text-center section-title" style="margin-bottom: 3rem;">¿Cómo funciona el <span class="highlight">Proceso?</span></h2>
+        
+        <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+            
+            <div class="card mvv-card">
+                <div class="icon-box-small">
+                    <img src="images/recoleccion.png" alt="Recolección en Campo" class="iot-step-img">
+                </div>
+                <h3>1. Recolección en Campo</h3>
+                <p>Un dispositivo embebido recolecta datos de su entorno (temperatura, presión, consumo eléctrico, posición, estado de una máquina) y los prepara para su transmisión de forma continua o periódica.</p>
+            </div>
+
+            <div class="card mvv-card">
+                <div class="icon-box-small">
+                    <img src="images/transmision.png" alt="Transmisión MQTT" class="iot-step-img">
+                </div>
+                <h3>2. Transmisión MQTT</h3>
+                <p>Utilizamos protocolos diseñados para entornos con recursos limitados y conectividad inestable. <strong>MQTT</strong> es nuestro estándar por su ligereza, eficiencia y capacidad de manejar miles de dispositivos con un overhead mínimo.</p>
+            </div>
+
+            <div class="card mvv-card">
+                <div class="icon-box-small">
+                    <img src="images/nube.png" alt="Dashboards en la Nube" class="iot-step-img">
+                </div>
+                <h3>3. Dashboards en la Nube</h3>
+                <p>Los datos son procesados, almacenados y presentados a través de dashboards en tiempo real. Estas interfaces visuales permiten monitorear activos, detectar anomalías y actuar sobre los sistemas remotamente.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="section-padding bg-darker">
+    <div class="container">
+        <div class="split-layout" style="display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
+            
+            <div class="text-content" style="flex: 1; min-width: 300px;">
+                <h2>El Verdadero Valor: <span class="highlight">Telemetría</span></h2>
+                <p class="justified-text" style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+                    El verdadero valor de un sistema IoT bien implementado no está solo en la conectividad, sino en la telemetría: la capacidad de registrar el comportamiento de un sistema a lo largo del tiempo, detectar patrones, anticipar fallos antes de que ocurran, y optimizar procesos con base en datos reales en lugar de suposiciones.
+                </p>
+                <ul class="values-list" style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: #4caf50; margin-right: 10px;"></i> <strong>Reducción de costos operativos</strong></li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: #4caf50; margin-right: 10px;"></i> <strong>Mayor disponibilidad de equipos</strong></li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: #4caf50; margin-right: 10px;"></i> <strong>Decisiones informadas a todo nivel</strong></li>
+                </ul>
+                <p class="justified-text" style="margin-top: 1.5rem; font-style: italic; color: var(--text-gray);">
+                    "El IoT cierra la brecha entre el mundo físico y el digital, convirtiendo cualquier activo en una fuente de inteligencia operativa accesible en tiempo real."
+                </p>
+            </div>
+
+            <div class="mock-dashboard">
+                <div class="dash-header">
+                    <div class="dash-status">
+                         <span class="status-dot"></span> MQTT En Línea
+                    </div>
+                <div class="dash-node">NODO-ESP32-01</div>
+                </div>
+    
+            <div class="dash-grid-internal">
+        
+                <div class="dash-widget">
+                    <div class="widget-header">
+                        <i class="fas fa-thermometer-half" style="color: #ff4757;"></i> Temperatura
+                    </div>
+                <div class="widget-value">42.5 °C</div>
+                <div class="widget-bar-bg">
+                    <div class="widget-bar-fill temp-anim"></div>
+                </div>
+                </div>
+
+         <div class="dash-widget">
+            <div class="widget-header">
+                <i class="fas fa-network-wired" style="color: #00d2ff;"></i> Tráfico (kbps)
+            </div>
+            <div class="mini-chart">
+                <div class="chart-bar cb-1"></div>
+                <div class="chart-bar cb-2"></div>
+                <div class="chart-bar cb-3"></div>
+                <div class="chart-bar cb-4"></div>
+                <div class="chart-bar cb-5"></div>
+                <div class="chart-bar cb-6"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+            
+        </div>
+    </div>
+</section>
+
+<section class="section-padding">
+    <div class="container text-center">
+        <h2 style="margin-bottom: 2rem;">Stack <span class="highlight">Tecnológico</span></h2>
+        <p style="margin-bottom: 3rem; color: var(--text-gray); max-width: 600px; margin-left: auto; margin-right: auto;">
+            Desarrollamos e integramos soluciones utilizando las plataformas más robustas del mercado y tecnologías open source líderes en la industria.
+        </p>
+        
+        <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; align-items: center;">
+            <div style="padding: 1rem; background: var(--bg-darker); border-radius: 10px; min-width: 150px; border: 1px solid rgba(255,255,255,0.05);">
+                <h4 style="margin:0; color: #FF9900;">AWS IoT</h4>
+            </div>
+            <div style="padding: 1rem; background: var(--bg-darker); border-radius: 10px; min-width: 150px; border: 1px solid rgba(255,255,255,0.05);">
+                <h4 style="margin:0; color: #0089D6;">Azure IoT Hub</h4>
+            </div>
+            <div style="padding: 1rem; background: var(--bg-darker); border-radius: 10px; min-width: 150px; border: 1px solid rgba(255,255,255,0.05);">
+                <h4 style="margin:0; color: #8F00FF;">Node-RED</h4>
+            </div>
+            <div style="padding: 1rem; background: var(--bg-darker); border-radius: 10px; min-width: 150px; border: 1px solid rgba(255,255,255,0.05);">
+                <h4 style="margin:0; color: #22ADF6;">InfluxDB</h4>
+            </div>
+            <div style="padding: 1rem; background: var(--bg-darker); border-radius: 10px; min-width: 150px; border: 1px solid rgba(255,255,255,0.05);">
+                <h4 style="margin:0; color: #F46800;">Grafana</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section">
+        <div class="container">
+            <h2>¿Te gustaria desarrollar un sistema IoT?</h2>
+            <p>Es probable que podamos hacerlo. Cuéntanos tu reto técnico.</p>
+            <a href="contacto.html" class="btn btn-primary btn-large">Consultar Personalizado</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h3>Catronics</h3>
+                <p>Ingeniería y Tecnología</p>
+            </div>
+            <div class="footer-links">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="proyectos.html">Proyectos</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p>contacto@catronics.mx</p>
+            </div>
+        </div>
+        <div class="copyright text-center">
+            <p>&copy; 2026 Catronics. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="java.js"></script>
+</body>
+</html>
