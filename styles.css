@@ -105,6 +105,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    margin-top: 1rem;
 }
 
 /* Utilitarios de Texto */
@@ -295,6 +296,7 @@ body {
 }
 
 .btn {
+    margin-top: 1rem;
     padding: 0.9rem 2rem;
     border-radius: 8px;
     text-decoration: none;
@@ -372,7 +374,7 @@ body {
     background: linear-gradient(180deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
 }
 
-.page-title { font-size: 3rem; margin-bottom: 0.5rem; }
+.page-title { font-size: 3rem; margin-top: 3rem;margin-bottom: 0.5rem; }
 .page-subtitle { color: var(--text-gray); font-size: 1.2rem; }
 
 /* Grid genérico de 3 columnas */
