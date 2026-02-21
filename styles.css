@@ -34,8 +34,8 @@
     .hamburger .bar {
         display: block;
         width: 25px;
-        height: 3px;
-        margin: 5px auto;
+        height: 2px;
+        margin: 3px auto;
         background-color: var(--text-light); /* Color de las rayitas */
         transition: all 0.3s ease;
     }
