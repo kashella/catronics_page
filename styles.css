@@ -1227,3 +1227,35 @@ footer {
 @media (max-width: 450px) {
     .dash-grid-internal { grid-template-columns: 1fr; }
 }
+
+/* =========================================
+   PÁGINA EN CONSTRUCCIÓN (Imagen Animada)
+   ========================================= */
+
+.construction-img {
+    width: 100%;
+    max-width: 200px; /* Controlamos el tamaño máximo para que no se vea gigante */
+    height: auto;
+    display: block;
+    margin: 0 auto;   /* Centrado horizontal */
+    
+    /* Brillo inicial */
+    filter: drop-shadow(0 0 10px var(--primary-color));
+    
+    /* Animación de latido: dura 1.5s, se repite por siempre, va y viene */
+    animation: techPulseImg 1.5s ease-in-out infinite alternate;
+}
+
+/* El efecto de latido y cambio de color del brillo */
+@keyframes techPulseImg {
+    0% {
+        transform: scale(0.95); /* Se hace un poquito pequeña */
+        /* Brillo color Primario (Violeta/Azul oscuro) */
+        filter: drop-shadow(0 0 10px var(--primary-color));
+    }
+    100% {
+        transform: scale(1.05); /* Crece un poquito */
+        /* Brillo se expande y cambia al color Secundario (Magenta/Cyan) */
+        filter: drop-shadow(0 0 30px var(--secondary-color));
+    }
+}
