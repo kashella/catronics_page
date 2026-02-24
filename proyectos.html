@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sitemas Embebidos | Catronics</title>
-    <meta name="description" content="Conoce mas a fondo los Sistemas Embebidos que creamos">
+    <title>Proyectos | Catronics</title>
+    <meta name="description" content="Portafolio de proyectos de ingeniería electrónica, IoT y automatización desarrollados por Catronics.">
     
-     <link rel="stylesheet" href="styles.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
@@ -21,11 +20,11 @@
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Inicio</a></li>
                 <li><a href="quienes.html" class="nav-link">Quiénes Somos</a></li>
-                <li><a href="servicios.html" class="nav-link active">Servicios</a></li>
-                <li><a href="proyectos.html" class="nav-link">Proyectos</a></li>
+                <li><a href="servicios.html" class="nav-link">Servicios</a></li>
+                <li><a href="proyectos.html" class="nav-link active">Proyectos</a></li>
                 <li><a href="contacto.html" class="nav-link btn-contact">Contacto</a></li>
             </ul>
-            <button class="hamburger">
+             <button class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -33,53 +32,124 @@
         </div>
     </nav>
 
-
-
-<section class="section-padding" style="min-height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center;">
-    <div class="container">
-        
-        <div class="loader-icon" style="margin-top: 8rem; margin-bottom: 2rem;">
-            <img src="images/construccion.png" alt="En Construcción" class="construction-img">
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">Portafolio de <span class="gradient-text">Proyectos</span></h1>
+            <p class="page-subtitle">Algunos de nuestros proyectos más importantes donde destacamos.</p>
         </div>
+    </header>
 
-        <h1 class="page-title" style="font-size: 3rem; margin-bottom: 1rem;">
-            Página en <span class="highlight">Construcción</span>
-        </h1>
-        
-        <p class="lead-text" style="max-width: 600px; margin: 0 auto 2rem auto; font-size: 1.2rem; color: var(--text-gray);">
-            Estamos soldando los últimos componentes y compilando el código para esta sección. Vuelve pronto para descubrir más detalles.
-        </p>
+    <section class="projects-section section-padding">
+        <div class="container">
+            
+            <div class="projects-grid">
 
-        <a href="index.html" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 10px;">
-            <i class="fas fa-arrow-left"></i> Regresar
-        </a>
+                <article class="project-card">
+                    <div class="project-image">
+                        <div class="project-image">
+                            <img src="images/ecoloop.jpeg" alt="Máquina de reciclaje EcoLoop con IA" class="project-img-full">
+                        </div>
+                        <span class="status-badge production">Prototipo</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>ECOLOOP</h3>
+                        <p class="project-desc">Sistema automatizado para clasificación de residuos industriales mediante visión artificial.</p>
+                        
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">OpenCV</span>
+                            <span class="tech-tag">Raspberry Pi</span>
+                        </div>
+                        
+                        <div class="project-footer">
+                            <a href="ecoloop.html" class="btn-text">Ver Caso de Estudio <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
 
-    </div>
-</section>
+                    <article class="project-card">
+                    <div class="project-image">
+                        <div class="project-image">
+                            <img src="images/glicerina.jpeg" alt="Dispensador" class="project-img-full">
+                        </div>
+                        <span class="status-badge production">Prototipo</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>Sistema Dispensador de Glicerina a la Medida</h3>
+                        <p class="project-desc">Sistema de dosificacion de glicerina para la elaboracion de velas y jabones.</p>
+                        
+                        <div class="tech-stack">
+                            <span class="tech-tag">Arduino</span>
+                            <span class="tech-tag">Bomba Peristaltica</span>
+                            <span class="tech-tag">C++</span>
+                        </div>
+                        
+                        <div class="project-footer">
+                            <a href="dispensador.html" class="btn-text">Ver Caso de Estudio <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
 
-<footer>
-    <div class="container footer-content">
-        <div class="footer-brand">
-            <h3>Catronics</h3>
-            <p>Ingeniería y Tecnología</p>
+                <article class="project-card">
+                    <div class="project-image">
+                        <div class="project-image">
+                            <img src="images/plc.jpeg" alt="Tablero PLC" class="project-img-full">
+                        </div>
+                        <span class="status-badge production">Prototipo</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>Tablero PLC para Automatización de Proceso Industrial </h3>
+                        <p class="project-desc">Tablero PLC para contorlar un sistema automatizado de vibradores por ciclos.</p>
+                        
+                        <div class="tech-stack">
+                            <span class="tech-tag">Ladder</span>
+                            <span class="tech-tag">PLC</span>
+                            <span class="tech-tag">Siemens LOGO!</span>
+                        </div>
+                        
+                        <div class="project-footer">
+                            <a href="contacto.html" class="btn-text">Ver Caso de Estudio <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                
+            </div>
         </div>
-        <div class="footer-links">
-            <h4>Enlaces Rápidos</h4>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="servicios.html">Servicios</a></li>
-                <li><a href="proyectos.html">Proyectos</a></li>
-            </ul>
+    </section>
+
+  <section class="cta-section">
+        <div class="container text-center">
+            <h2>¿No encuentras lo que buscas?</h2>
+            <p>Es probable que podamos hacerlo. Cuéntanos tu reto técnico.</p>
+            <a href="contacto.html" class="btn btn-primary btn-large">Consultar Personalizado</a>
         </div>
-        <div class="footer-contact">
-            <h4>Contacto</h4>
-            <p>contacto@catronics.mx</p>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h3>Catronics</h3>
+                <p>Ingeniería y Tecnología</p>
+            </div>
+            <div class="footer-links">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="proyectos.html">Proyectos</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p>contacto@catronics.mx</p>
+            </div>
         </div>
-    </div>
-    <div class="copyright text-center">
-        <p>&copy; 2026 Catronics. Todos los derechos reservados.</p>
-    </div>
-</footer>
-<script src="script.js"></script>
+        <div class="copyright text-center">
+            <p>&copy; 2026 Catronics. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

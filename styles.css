@@ -1259,3 +1259,31 @@ footer {
         filter: drop-shadow(0 0 30px var(--secondary-color));
     }
 }
+
+/* =========================================
+   IMÁGENES PARA TARJETAS DE PROYECTOS
+   ========================================= */
+
+.project-img-full {
+    width: 100%;
+    height: 220px; /* Fija una altura para que todas tus tarjetas de proyectos se vean parejas */
+    object-fit: cover; /* Recorta la imagen mágicamente para que no se estire ni se aplaste */
+    display: block;
+    
+    /* Si tu tarjeta tiene bordes redondeados, esto asegura que la foto también los tenga arriba */
+    border-radius: 10px 10px 0 0; 
+    
+    /* Un pequeño efecto al pasar el cursor para que se vea más dinámico */
+    transition: transform 0.4s ease;
+}
+
+/* Efecto de zoom en la foto cuando el usuario pasa el mouse por la tarjeta */
+.project-card:hover .project-img-full {
+    transform: scale(1.05);
+}
+
+/* Asegura que el contenedor esconda el pedazo de foto que se hace grande con el zoom */
+.project-image {
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+}
