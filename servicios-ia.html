@@ -58,46 +58,61 @@
     </div>
 </section>
 
-     <footer>
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <h3>Catronics</h3>
-                <p>Ingeniería y Tecnología</p>
-            </div>
-            <div class="footer-links">
-                <h4>Enlaces Rápidos</h4>
-                <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="servicios.html">Servicios</a></li>
-                    <li><a href="proyectos.html">Proyectos</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <h4>Contacto</h4>
-                <p>contacto@catronics.mx</p>
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/CatronicsLab" target="_blank" aria-label="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-    
-                <a href="https://www.instagram.com/catronicslabmx/" target="_blank" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-
-                <a href="https://www.linkedin.com/company/catronics-lab/posts/?feedView=all" target="_blank" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    
-                    <a href="https://github.com/CatronicsLabMx" target="_blank" aria-label="GitHub">
-                    <i class="fab fa-github"></i>
-                    </a>
+<footer class="site-footer">
+    <div class="container footer-grid">
+        
+        <div class="footer-form-section">
+            <h2 class="footer-title">¿Tienes alguna duda? <span style="color:  #8F00FF;">CONTACTANOS.</span></h2>
+            
+            <form action="https://formspree.io/f/xbdaagnr" method="POST" class="contact-form">
+                <div class="input-group">
+                    <input type="text" id="name" name="name" placeholder="Nombre Completo" required>
                 </div>
+                
+                <div class="input-group">
+                    <input type="email" id="email" name="email" placeholder="Correo Electrónico" required>
+                </div>
+
+                <div class="input-group">
+                    <select id="subject" name="subject" required>
+                        <option value="" disabled selected>Selecciona el Asunto...</option>
+                        <option value="cotizacion" style="color: black;">Cotización de Proyecto</option>
+                        <option value="soporte" style="color: black;">Soporte Técnico</option>
+                        <option value="info" style="color: black;">Información General</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <textarea id="message" name="message" placeholder="Detalles del Proyecto..." rows="1" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-full">
+                            Enviar Mensaje <i class="fas fa-paper-plane"></i>
+                        </button>
+            </form>
+        </div>
+
+        <div class="footer-info-section">
+            
+            <img src="images/Red & White Simple Shoe Sale Instagram Post.png" alt="Catronics Lab" class="footer-logo" style="filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.4)); max-width: 250px; margin-bottom: 20px;">
+            
+            <p class="footer-tagline">Ingeniería que <span style="color:  #8F00FF;">Transforma</span></p>
+
+            <div class="social-icons" style="margin-bottom: 30px;">
+                <a href="https://wa.me/529997372022" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.instagram.com/catronicslabmx/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/CatronicsLabMx" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/company/catronics-lab/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:contacto@catronics.mx" aria-label="Correo"><i class="fas fa-envelope"></i></a>
             </div>
+            
+            <p class="copyright">
+                © 2026 Catronics Lab. Todos los derechos reservados.<br>
+            </p>
         </div>
-        <div class="copyright text-center">
-            <p>&copy; 2026 Catronics. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+
+    </div>
+</footer>
 
     <script src="script.js"></script>
 </body>

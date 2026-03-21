@@ -1287,3 +1287,83 @@ footer {
     overflow: hidden;
     border-radius: 10px 10px 0 0;
 }
+
+/* Inputs transparentes solo con línea abajo (Incluye el Select) */
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #333; /* Línea gris oscura por defecto */
+    padding: 10px 0;
+    color: #ffffff;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+    appearance: none; /* Quita la flechita por defecto del sistema operativo */
+}
+
+/* Efecto al hacer clic o interactuar */
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+    outline: none;
+    border-bottom-color:  #8F00FF; /* La línea se vuelve cian */
+}
+
+/* Cuadrícula que divide el footer en 2 columnas iguales (Lado a lado) */
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 1fr para el formulario, 1fr para la imagen/redes */
+    gap: 60px;
+    align-items: center; /* Centra todo verticalmente */
+}
+
+/* En celulares, cambia a 1 sola columna para que no se apachurre */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================
+   LA CUADRÍCULA DEL FOOTER (Centrada)
+   ========================================= */
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Mantiene 2 columnas (Mitad y mitad) */
+    gap: 60px;
+    align-items: center;
+    
+    /* MAGIA AQUÍ: Esto evita que se estire a las orillas y lo centra en la pantalla */
+    max-width: 900px; 
+    margin: 0 auto; 
+}
+
+/* Centramos el título del formulario para que haga equilibrio con el logo */
+.footer-form-section {
+    text-align: center; 
+}
+
+/* El título en sí */
+.footer-title {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Hacemos que la columna de la derecha también esté centrada en sí misma */
+.footer-info-section {
+    text-align: center;
+}
+
+/* Para celulares (se apilan y se centran solos) */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px; /* Un poco más angosto en celular para que se vea limpio */
+    }
+}
